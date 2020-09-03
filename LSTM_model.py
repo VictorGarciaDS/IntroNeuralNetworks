@@ -7,8 +7,8 @@ import pandas_datareader.data as pdr
 import yfinance as fix
 fix.pdr_override()
 
-start = "2003-01-01"
-end = "2018-01-01"
+start = "2005-01-01"
+end = "2020-01-01"
 
 hist.get_stock_data("AAPL", start_date=start, end_date=end)
 process = DataProcessing("stock_prices.csv", 0.9)
@@ -32,7 +32,7 @@ model.fit(X_train, Y_train, epochs=50)
 
 print(model.evaluate(X_test, Y_test))
 
-data = pdr.get_data_yahoo("AAPL", "2017-12-19", "2018-01-04")
+data = pdr.get_data_yahoo("AAPL", "2019-12-19", "2020-01-06")
 stock = data["Adj Close"]
 X_predict = np.array(stock).reshape((1, 10, 1)) / 200
 
